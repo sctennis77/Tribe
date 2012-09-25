@@ -1,0 +1,91 @@
+.content_wrapper {margin-left:auto; margin-right: auto; width:1024px; height:710px;background: grey;}
+.tribeheader {  
+	height:200px; 
+	text-align: center; 
+}
+
+.tribeheader img {height:200px; width:400px;}
+.navbar { text-align:center;}
+.shopcontent{position: relative}
+.shopcontent {
+		text-align:center;
+	 	margin:2%;
+	 	padding:2%; 
+	 	background: rgb(0, 0, 0) transparent;
+	 	height:400px;}
+.shopcontent .shirtview { float:left; width:50%;}
+.buyview { float:right; width:10%;}
+.tribefooter {height:50px; text-align:center;}
+.tribefooter img {height:30px; width:200px; margin:0 auto; }
+.navbar {
+		float:left;
+	 	list-style: none; 
+	 	text-align:center;
+	 	padding:0; 
+	 	width:100%; 
+	 	margin: 0 0 3em 0;
+	 	background-color: #f2f2f2;
+		border-bottom: 1px solid #ccc; 
+		border-top: 1px solid #ccc; 
+		}
+
+.navbar li a {
+		display: block;
+		padding: 7px 50px;	
+		text-decoration: none;
+		font-weight: bold;
+		color: black;
+		border-right: 1px solid #ccc; 
+		}
+.navbar li a:hover{
+	color:#c00;
+	background:#fff;
+}
+
+.navbar .navlinks li {float: left; display:inline;}
+
+
+
+
+/* slider shit */
+#slider ul{
+		margin:0;
+		padding:0;
+		list-style:none;
+		}
+#slider li{
+		width:696px;
+		height:241px;
+		overflow:hidden;
+		margin:0;
+		padding:0;
+		list-style:none;
+		}
+
+#prevBtn, #nextBtn,
+	#slider1next, #slider1prev{ 
+		display:block;
+		width:30px;
+		height:77px;
+		position:absolute;
+		left:-30px;
+		bottom:71px;
+		z-index:1000;
+		}	
+
+
+	#nextBtn, #slider1next{ 
+		left:696px;
+		}														
+	#prevBtn a, #nextBtn a,
+	#slider1next a, #slider1prev a{  
+		display:block;
+		position:relative;
+		width:30px;
+		height:77px;
+		background:url("/static/pictures/btn_prev.gif") no-repeat 0 0;	
+		}	
+	#nextBtn a, #slider1next a{ 
+		background:url("/static/pictures/btn_next.gif") no-repeat 0 0;	
+		}	
+		

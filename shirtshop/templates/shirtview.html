@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block container %}
+<body>
+	<div class='content_wrapper'>
+
+		<div class='tribeheader'>
+			<img src='{{ STATIC_URL }}pictures/tribe_logo1.png' class='tribe_logo' alt='tribeeye'>
+		</div>
+
+		 <div class='navbar'>
+			<ul class='navlinks'>
+				<li><a href="default.asp">Home</a></li>
+				<li><a href="contact.asp">Contact</a></li>
+				<li><a href="about.asp">Blog</a></li>
+				<li><a href="about.asp">About</a></li>
+			</ul>
+		 </div>
+
+		 <div class='shopcontent'>
+
+			<div id="slider"> 
+				<ul>
+					<li> <img src='{{ STATIC_URL }}pictures/stars1.jpeg' alt='pat1'</li>
+					<li> <img src='{{ STATIC_URL }}pictures/stars2.jpeg' alt='pat2'</li>
+					<li> <img src='{{ STATIC_URL }}pictures/stars3.jpeg' alt='pat3'</li>
+				</ul>
+			</div>
+
+			<div class='buyview'>
+
+				<div class='test_shirt_form'>
+					<form action='/shirtshop/shirts/views/get_shirt_info/' method='POST' class="shirt_form">
+						{% csrf_token %}
+						<input type='hidden' name='pattern' value="stars">
+						<input type='hidden' name='price' value='30.0'>
+						<input type='submit' name='send_shirt' value='Buy Shirt' class='send_shirt'>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
+		<div class='tribefooter'>
+			<img src="{{ STATIC_URL }}pictures/tribe_footer1.png" alt='tribesquars'>
+		<div>
+
+	</div>		
+</body>
+
+<script type="text/javascript">
+	// disable submit so we can override
+	$('.shirt_form').submit(function() {return false;});
+	$('.send_shirt').click(function(event){
+		var $form = $(this).parent("form");
+		var url = $form.attr("action")
+		var shirt_data = $form.serialize();
+		console.log("hereee")
+		$.post(url,shirt_data, {} ,'json')
+	});
+
+	$(document).ready(function(){	
+		$("#slider").easySlider({
+			auto: true, 
+			continuous: true,
+			prevText:"",
+			nextText:""
+		});
+	});	
+
+
+
+	
+</script>	
+ {% endblock %}
