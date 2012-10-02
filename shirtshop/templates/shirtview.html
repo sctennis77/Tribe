@@ -1,74 +1,58 @@
+<!-- Sam Clark, Tribe, Sept 2012-->
 {% extends "base.html" %}
-{% block container %}
-<body>
-	<div class='content_wrapper'>
 
-		<div class='tribeheader'>
-			<img src='{{ STATIC_URL }}pictures/tribe_logo1.png' class='tribe_logo' alt='tribeeye'>
-		</div>
-
-		 <div class='navbar'>
-			<ul class='navlinks'>
-				<li><a href="default.asp">Home</a></li>
-				<li><a href="contact.asp">Contact</a></li>
-				<li><a href="about.asp">Blog</a></li>
-				<li><a href="about.asp">About</a></li>
+{% block maincontent %}
+		
+	<div class='slider_wrapper'>
+		<div class="bx_slider"> 
+			<ul class="slider0">
+				<li> <img src='{{ STATIC_URL }}pictures/stars1.jpeg' alt='pat2'</li>
 			</ul>
-		 </div>
+			<ul class="slider1">
+				<li> <img src='{{ STATIC_URL }}pictures/stars2.jpeg' alt='pat2'</li>
+			</ul>
+			<ul class="slider2">
+				<li> <img src='{{ STATIC_URL }}pictures/stars3.jpeg' alt='pat3'</li>
+			</ul>
+			</ul>
 
-		 <div class='shopcontent'>
-
-			<div id="slider"> 
-				<ul>
-					<li> <img src='{{ STATIC_URL }}pictures/stars1.jpeg' alt='pat1'</li>
-					<li> <img src='{{ STATIC_URL }}pictures/stars2.jpeg' alt='pat2'</li>
-					<li> <img src='{{ STATIC_URL }}pictures/stars3.jpeg' alt='pat3'</li>
-				</ul>
-			</div>
-
-			<div class='buyview'>
-
-				<div class='test_shirt_form'>
-					<form action='/shirtshop/shirts/views/get_shirt_info/' method='POST' class="shirt_form">
-						{% csrf_token %}
-						<input type='hidden' name='pattern' value="stars">
-						<input type='hidden' name='price' value='30.0'>
-						<input type='submit' name='send_shirt' value='Buy Shirt' class='send_shirt'>
-					</form>
-				</div>
-
-			</div>
 		</div>
 
-		<div class='tribefooter'>
-			<img src="{{ STATIC_URL }}pictures/tribe_footer1.png" alt='tribesquars'>
-		<div>
+		<div class="thumbs">
+			  <a href=""><img src='{{ STATIC_URL }}pictures/stars3.jpeg' alt='pat3'height='40' width='40'/></a>
+			  <a href=""><img src='{{ STATIC_URL }}pictures/stars1.jpeg' alt='pat3'height='40' width='40'/></a>
+			  <a href=""><img src='{{ STATIC_URL }}pictures/stars2.jpeg' alt='pat3'height='40' width='40'/></a>
+		</div>
+	</div>
+	<div class='shirt_description'>
+		<div class='pattern_name'>
+			<h2> Pattern Name </h2>
+		</div>
+		<div class='description_text'>
+			<p> This is where we will put a descritpion of the shirt </p>
+		</div>
+		<div class='pricetag'>
+		<span class='price_text'><p> only <p></span>
+		<h2> $29.99 </h2>
+		</div>
+	</div>
 
-	</div>		
-</body>
+	<div class='buyview'>
+
+		<div class='test_shirt_form'>
+			<form action='/shirtshop/shirts/views/get_shirt_info/' method='POST' class="shirt_form">
+				{% csrf_token %}
+				<input type='hidden' name='pattern' value="stars">
+				<input type='hidden' name='price' value='30.0'>
+			</form>
+		</div>
+
+	</div>
 
 <script type="text/javascript">
-	// disable submit so we can override
-	$('.shirt_form').submit(function() {return false;});
-	$('.send_shirt').click(function(event){
-		var $form = $(this).parent("form");
-		var url = $form.attr("action")
-		var shirt_data = $form.serialize();
-		console.log("hereee")
-		$.post(url,shirt_data, {} ,'json')
-	});
-
-	$(document).ready(function(){	
-		$("#slider").easySlider({
-			auto: true, 
-			continuous: true,
-			prevText:"",
-			nextText:""
-		});
-	});	
-
-
-
+	var data = JSON.parse("{{ shirts }}".replace(/&quot;/g,'"'))
 	
-</script>	
- {% endblock %}
+</script>
+
+
+{% endblock %}
