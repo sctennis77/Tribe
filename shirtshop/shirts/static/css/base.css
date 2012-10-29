@@ -1,0 +1,54 @@
+
+body {
+	background:url("/static/pictures/background1.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size:100%;
+}
+.content_wrapper { 
+	min-height:100%;
+	width: 960px; 
+	margin: 0 auto 0 auto;
+	height: 750px;
+	border:1px solid black;
+}
+
+.dock {
+	float:left;
+	width:10%;
+	height:590px;
+}
+
+.dock .icons {
+	height: 400px;
+	border: 1px solid;
+	margin-top:145px;
+	margin-bottom:145px;
+}
+.header {
+	height:100px;
+	width:100%;
+	float:left;
+
+}
+
+.shopcontent {
+	float:right;
+	width:80%;
+	height:590px;
+	background:white;
+}
+
+.space_filler {
+	float:right;
+	width: 10%;
+	height: 660px;
+
+}
+
+.footer {
+	height:30px;
+	width:80%;
+	float:right;
+
+}

@@ -8,7 +8,6 @@
 		var $form = $(this).parent("form");
 		var url = $form.attr("action")
 		var shirt_data = $form.serialize();
-		console.log("hereee")
 		$.post(url,shirt_data, {} ,'json')
 	});
 
@@ -27,21 +26,24 @@
     	controls: false,
   	});
 
-  // assign a click event to the external thumbnails
+ 
+
+
+
+   // assign a click event to the external thumbnails
     $('.thumbs a').click(function(){
-    	// jequery element to change description and pattern name
-    	var description_html = $('.shirt_description .description_text');
-    	var pattern_name_html = $('.shirt_description .pattern_name')
-    	// jquery for thumbnail click
-   		var thumbIndex = $('.thumbs a').index(this);
+      // jequery element to change description and pattern name
+    
+      // jquery for thumbnail click
+      var thumbIndex = $('.thumbs a').index(this);
+      change_shirt_info(thumbIndex);
 
-   		// change description, pattern based on shirt clicked
-   		pattern_name_html.html("<h2> django_shirt.pattern </h2>")
-   		description_html.html("<p> django_shirt.description </p>")
-
+      // change description, pattern based on shirt clicked
+   
 
 
-    	slider.goToSlide(thumbIndex);
+
+      slider.goToSlide(thumbIndex);
 
   
     // remove all active classes
@@ -49,8 +51,26 @@
     // assisgn "pager-active" to clicked thumb
     $(this).addClass('pager-active');
     // very important! you must kill the links default behavior
-    	return false;
-  	});
+      return false;
+    });
+
+    function change_shirt_info(idx)
+    {
+      console.log(idx);
+      var description_text_html = $('.shirt_description .description_text');
+      var pattern_name_html = $('.shirt_description .pattern_name');
+      // instead of shirt_list[0] this will be shirt_list[idx] where idx
+      // is the thumbnail clicked
+      var pattern_name = shirt_list[idx].fields.pattern;
+      var description_text = shirt_list[idx].fields.description;
+      pattern_name_html.html(make_html_text("<h2>",pattern_name,"</h2>"));
+      description_text_html.html(make_html_text("<p>",description_text,"<p>"));
+    }
+    function make_html_text(tag,text,endtag)
+    {
+      var html_text = tag + text + endtag;
+      return html_text
+    }
 
   // assign "pager-active" class to the first thumb
  	$('.thumbs a:first').addClass('pager-active');

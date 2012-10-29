@@ -32,6 +32,7 @@ class Shirt(models.Model):
     description = models.TextField(default="")
     sleeve_type = models.CharField(default="short", max_length=100)
     destination = models.ForeignKey(Destination)
+    display = models.BooleanField(default=False)
     sent = models.BooleanField(default=False)
     other = models.TextField(default="")
 

@@ -5,42 +5,51 @@
 <title>Tribe Shirts</title>
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/shirtshop.css"/>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL}}css/base.css"/>
 <!-- JAVASCRIPT -->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/easySlider1.7.js"></script> 
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.bxSlider.min.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/shopcontent.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/processing-1.4.1.min.js"></script>
 <!-- FONTS -->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Brawler' rel='stylesheet' type='text/css'>
-
+<link href='http://fonts.googleapis.com/css?family=Just+Another+Hand' rel='stylesheet' type='text/css'>
 </head>
+
+<!-- 				<img src='{{ STATIC_URL }}pictures/tribe_logo1.png' class='tribe_logo' alt='tribeeye'>
+-->
 <body>
-	<div class='contentwrapper'>
+	<div class='content_wrapper'>
 		{% block tribeheader %}
-			<div class='tribeheader'>
-				<img src='{{ STATIC_URL }}pictures/tribe_logo1.png' class='tribe_logo' alt='tribeeye'>
+			<div class='header'>
+				<img src="{{STATIC_URL}}pictures/tribe_header.png">
 			</div>
 		{% endblock %}
+		{% block dock %}
+			<div class='dock'>
+				<div class="icons">
+					<ul class='navlinks'>
+					<li><a href="/home">Home</a></li>
+					<li><a href="http://weartribe.tumblr.com/">Blog</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/patterns">Patterns</a></li>
+					</ul> 
+				</div>
+			</div>
+		{% endblock %}
+		<div class= 'space_filler'> <h3> space </h3></div>
 		 <div class='shopcontent'>
-		{% block navbar %}
-			<div class='navbar'>
-				<ul class='navlinks'>
-				<li><a href="/home">Home</a></li>
-				<li><a href="http://weartribe.tumblr.com/">Blog</a></li>
-				<li><a href="/about">About</a></li>
-				</ul>
-			</div>
-		{% endblock %}
 		{% block maincontent %} 
-			<div> h1 </div> 
 		{% endblock %}
 		</div>
+		
 		{% block tribefooter %}
-			<div class='tribefooter'>
-				<img src='{{ STATIC_URL }}pictures/tribe_logo1.png' class='tribe_logo' alt='tribeeye'>
+			<div class='footer'>
+				<h3> footer <h3>
 			<div>
+		
 		{% endblock %}
 	</div>
 </body>

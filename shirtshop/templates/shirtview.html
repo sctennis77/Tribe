@@ -4,24 +4,21 @@
 {% block maincontent %}
 		
 	<div class='slider_wrapper'>
-		<div class="bx_slider"> 
-			<ul class="slider0">
-				<li> <img src='{{ STATIC_URL }}pictures/stars1.jpeg' alt='pat2'</li>
+			
+		<div class="bx_slider">
+			{% for pattern,tag in slider_tag_dict.items %}
+			<ul class="{{ tag }}">
+				<li> <img src='{{ STATIC_URL }}pictures/{{ pattern }}.jpeg' alt='{{ pattern }}' height='225' width='225'</li>
 			</ul>
-			<ul class="slider1">
-				<li> <img src='{{ STATIC_URL }}pictures/stars2.jpeg' alt='pat2'</li>
-			</ul>
-			<ul class="slider2">
-				<li> <img src='{{ STATIC_URL }}pictures/stars3.jpeg' alt='pat3'</li>
-			</ul>
-			</ul>
+			{% endfor %}
 
 		</div>
 
 		<div class="thumbs">
-			  <a href=""><img src='{{ STATIC_URL }}pictures/stars3.jpeg' alt='pat3'height='40' width='40'/></a>
-			  <a href=""><img src='{{ STATIC_URL }}pictures/stars1.jpeg' alt='pat3'height='40' width='40'/></a>
-			  <a href=""><img src='{{ STATIC_URL }}pictures/stars2.jpeg' alt='pat3'height='40' width='40'/></a>
+			<!-- This will be (for shirt in shirt_list) shirt.thumbimage-->
+			{% for pattern in thumbnail_list %}
+			 <a href=""><img src='{{ STATIC_URL }}pictures/{{pattern}}.jpeg' alt='pat3'height='40' width='40'/></a>
+			 {% endfor %}
 		</div>
 	</div>
 	<div class='shirt_description'>
@@ -32,25 +29,20 @@
 			<p> This is where we will put a descritpion of the shirt </p>
 		</div>
 		<div class='pricetag'>
-		<span class='price_text'><p> only <p></span>
 		<h2> $29.99 </h2>
+		<p> only </p>
 		</div>
 	</div>
 
-	<div class='buyview'>
-
-		<div class='test_shirt_form'>
-			<form action='/shirtshop/shirts/views/get_shirt_info/' method='POST' class="shirt_form">
-				{% csrf_token %}
-				<input type='hidden' name='pattern' value="stars">
-				<input type='hidden' name='price' value='30.0'>
-			</form>
-		</div>
-
-	</div>
 
 <script type="text/javascript">
-	var data = JSON.parse("{{ shirts }}".replace(/&quot;/g,'"'))
+
+	var shirt_list = JSON.parse("{{ shirt_json }}".replace(/&quot;/g,'"'));
+	var thumbnail_json = JSON.parse("{{thumbnail_json}}".replace(/&quot;/g,'"'));
+	console.log(thumbnail_json);
+	console.log(shirt_list)
+
+
 	
 </script>
 

@@ -3,13 +3,10 @@
 body {width:100%;
 	  height:100%;
 	  background: url("/static/pictures/tribe_background1.png");
-	  background-repeat:no-repeat;}
-.content_wrapper { 
-	margin-right:auto;
-	margin-left:auto;
-	width:1024px; 
-	height:710px;
-	text-align:center;}
+	  background-repeat:no-repeat;
+	  background-attachment: fixed;
+      background-size:100% 100%;}
+
 .tribeheader {  
 	height:200px; 
 	text-align: center; 
@@ -19,28 +16,35 @@ body {width:100%;
 .shopcontent {
 		text-align:center;
 		padding:1%;
-	 	background: rgba(255, 255, 255, 0.3); 
-	 	height:400px;
+	 	height:450px;
 	 	margin:auto;
 	 	margin-top:20px;
-	 	border-radius: 6px;
+	 	border-radius: 2px;
 	 	width:90%;
+	 	border:2px solid rgba(255, 255, 255, 0.4);
+	 	box-shadow:0px 2px 2px  rgba(0, 0, 0, 0.2);
+		background: -moz-linear-gradient(top, rgba(255,255,255,0.52) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.4)), color-stop(37%,rgba(255,255,255,0.25)), color-stop(68%,rgba(255,255,255,0.1)), color-stop(100%,rgba(255,255,255,0))); 
+		background: -webkit-linear-gradient(top, rgba(255,255,255,0.52) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, rgba(255,255,255,0.52) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, rgba(255,255,255,0.52) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+		background: linear-gradient(to bottom, rgba(255,255,255,0.52) 0%,rgba(255,255,255,0) 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#85ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+
 	 }
 
-.slider_wrapper{float:left; width:60%;}
-.shirt_description {font-family: 'Brawler', sans-serif;
-					float:right;
-					width:40%;
-				}
-.shirt_description h2 {
-		color: #333;
-		text-shadow: none;
-		letter-spacing: 0;
-		}
+.slider_wrapper{float:left; width:60%; margin-top:30px;}
+
 
 .tribefooter {height:50px; text-align:center;}
-.tribefooter img {height:20px; width:40px; margin:0 auto; margin-top:10px; }
-.navbar {
+.tribefooter img {height:20px; width:40px; margin:0 auto; margin-top:0px; }
+
+.social_media_share {
+		clear:both;
+		float:right;
+		margin-right:75px; 
+		vertical-align: middle;}
+.dock {
 		float:left;
 	 	list-style: none; 
 	 	text-align:center;
@@ -49,19 +53,32 @@ body {width:100%;
 	 	background-color: transparent;
 		}
 
-.navbar li a {
+.dock li a {
 		display: block;
 		padding: 7px 50px;	
 		text-decoration: none;
-		font-family: 'Brawler', sans-serif;
-		font-size:12px;
+		font-family: 'Just Another Hand', sans-serif;
+		font-size:18px;
 		color: black;
 		}
-.navbar li a:hover{
+.dock li a:hover{
 	color:snow;
 }
 
-.navbar .navlinks li {float: left; display:inline;}
+.dock .navlinks li {float: left; display:inline;}
+
+
+.shirt_description {font-family: 'Brawler', sans-serif;
+					float:right;
+					vertical-align:middle;
+
+					width:40%;
+				}
+.shirt_description h2 {
+		color: #333;
+		text-shadow: none;
+		letter-spacing: 0;
+		}
 
 .pricetag {text-align:center;
 		 font-family:'Open Sans',sans-serif;
@@ -70,19 +87,8 @@ body {width:100%;
 		 font-weight:normal;
 		 font-height:normal;
 		 text-align:center;
+		 margin-bottom:75px;
 		}
-.price_text {display: inline-block;}
-.price_text h3 {font-size:10px; margin-right:10px;}
-
-/* zoomin images
-
-.slider_wrapper .thumbs img:hover
-{
-  -webkit-transition-property: -webkit-transform;
-  -webkit-transform: scale(2,2); 
-  -webkit-transition-timing-function: ease-in-out;
-  -webkit-transition-duration: 1s;  
-}
-*/
-
+.price_tag h2 {font-size:40px; margin-right:10px;float:left; }
+.price_tag p {font-size:10px; float:right; color:lightgrey;}
 
