@@ -3,34 +3,30 @@
 
 {% block maincontent %}
 		
-	<div class='slider_wrapper'>
-			
-		<div class="bx_slider">
-			{% for pattern,tag in slider_tag_dict.items %}
-			<ul class="{{ tag }}">
-				<li> <img src='{{ STATIC_URL }}pictures/{{ pattern }}.jpeg' alt='{{ pattern }}' height='225' width='225'</li>
-			</ul>
-			{% endfor %}
+	<div class="content">
+		<div class="picture_wrapper">
+			<div class="picture">
+				<img class="main_picture" src='{{ STATIC_URL }}pictures/test_pattern1.jpeg' width='250' height='400'>
+			</div>
 
+			<div class="thumbs">
+				<!-- This will be (for shirt in shirt_list) shirt.thumbimage-->
+				{% for pattern in thumbnail_list %}
+				 <a href=""> <img src='{{ STATIC_URL }}pictures/{{pattern}}.jpeg' alt='pat3'height='40' width='40'/></a>
+				 {% endfor %}
+			</div>
 		</div>
-
-		<div class="thumbs">
-			<!-- This will be (for shirt in shirt_list) shirt.thumbimage-->
-			{% for pattern in thumbnail_list %}
-			 <a href=""><img src='{{ STATIC_URL }}pictures/{{pattern}}.jpeg' alt='pat3'height='40' width='40'/></a>
-			 {% endfor %}
-		</div>
-	</div>
-	<div class='shirt_description'>
-		<div class='pattern_name'>
-			<h2> Pattern Name </h2>
-		</div>
-		<div class='description_text'>
-			<p> This is where we will put a descritpion of the shirt </p>
-		</div>
-		<div class='pricetag'>
-		<h2> $29.99 </h2>
-		<p> only </p>
+		<div class='shirt_description'>
+			<div class='pattern_name'>
+				<h2> Pattern Name </h2>
+			</div>
+			<div class='description_text'>
+				<p> This is where we will put a descritpion of the shirt </p>
+			</div>
+			<div class='pricetag'>
+			<h2> $29.99 </h2>
+			<p> only </p>
+			</div>
 		</div>
 	</div>
 
@@ -39,8 +35,23 @@
 
 	var shirt_list = JSON.parse("{{ shirt_json }}".replace(/&quot;/g,'"'));
 	var thumbnail_json = JSON.parse("{{thumbnail_json}}".replace(/&quot;/g,'"'));
-	console.log(thumbnail_json);
-	console.log(shirt_list)
+	$('.thumbs a').click(function(e){
+      // jequery element to change description and pattern name
+    
+      e.preventDefault();
+      clicked_thumb = e.srcElement.src;
+      // jquery for thumbnail click
+
+      var pic = $('.main_picture')[0];
+      console.log(pic);
+      pic.src  = clicked_thumb;
+      var thumbIndex = $('.thumbs a').index(this);
+      change_shirt_info(thumbIndex);
+
+    });
+
+	//console.log(thumbnail_json);
+	//console.log(shirt_list)
 
 
 	
